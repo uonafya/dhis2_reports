@@ -1,0 +1,262 @@
+
+<!--@author-dennis-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+.gridDiv {
+  font-family: sans-serif, arial;
+}
+
+table.gridTable {
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+
+.gridTable th, td {
+  padding: 8px 4px 7px 4px;
+  border: 1px solid #e7e7e7;
+}
+
+.gridTable th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            var orgUnit = dhis2.report.organisationUnit;
+            var period = dhis2.report.periods;
+            var targetPeriod = $.trim(period).substring(0,4);
+            $("#orgUnit").html(orgUnit.name);
+            $("#period").html(period);
+            //Variables Performance, Target
+            var one=0;
+            var oneT=0;
+
+            var two=0;
+            var twoT=0;
+
+            var three=0;
+            var threeT=0;
+           
+            var four=0;
+            var fourT=0;
+           
+            var five=0;
+            var fiveT=0;
+            
+            var six=0;
+            var sixT=0;
+           
+            var seven=0;
+            var sevenT=0;
+           
+            var eight=0;
+            var eightT=0;
+           
+            var nine=0;
+            var nineT=0;
+           
+            var ten=0;
+            var tenT=0;
+            
+            //Performance
+            $.get("../api/analytics?dimension=pe:"+period+"&dimension=dx:B3ZmwiUifgb.z9mMd9IrWV1;B3ZmwiUifgb.KV4ZZKNt2Ec;BMKe9ns2j8i.z9mMd9IrWV1;BMKe9ns2j8i.KV4ZZKNt2Ec;ls9Eb4X6ikB.jqnt1CaDYmA;BvZKl5yETb8.jqnt1CaDYmA;Ec0hLdLSybD.jqnt1CaDYmA;yol5Iik5I1a.jqnt1CaDYmA;EZn9TVXq8Q0.jqnt1CaDYmA;Ge674O6PKE9.jqnt1CaDYmA&filter=ou:"+orgUnit.id+"&displayProperty=NAME&tableLayout=true&columns=&rows=pe;dx").then(function (json) {
+
+                    $("#one").html(json.rows[0][8]);
+                    one=json.rows[0][8];
+                    $("#two").html(json.rows[1][8]);
+                    two=json.rows[1][8];
+                    $("#three").html(json.rows[2][8]);
+                    three=json.rows[2][8];
+                    $("#four").html(json.rows[3][8]);
+                    four=json.rows[3][8];
+                    $("#five").html(json.rows[4][8]);
+                    five=json.rows[4][8];
+                    $("#six").html(json.rows[5][8]);
+                    six=json.rows[5][8];
+                    $("#seven").html(json.rows[6][8]);
+                    seven=json.rows[6][8];
+                    $("#eight").html(json.rows[7][8]);
+                    eight=json.rows[7][8];
+                    $("#nine").html(json.rows[8][8]);
+                    nine=json.rows[8][8];
+                    $("#ten").html(json.rows[9][8]);
+                    ten=json.rows[9][8];
+                    
+                    console.log(json.rows);
+
+                      //Target
+             $.get("../api/analytics?dimension=pe:"+targetPeriod+"&dimension=dx:a3Od8BPwTyr.z9mMd9IrWV1;a3Od8BPwTyr.KV4ZZKNt2Ec;JqQdQsVieh8.z9mMd9IrWV1;JqQdQsVieh8.KV4ZZKNt2Ec;QEhWn0DCoLR.jqnt1CaDYmA;WmUJFBsQhHr.jqnt1CaDYmA;QxjYEBR3ImS.jqnt1CaDYmA;n9XI5OhSd57.jqnt1CaDYmA;GZSMoEBtT3X.jqnt1CaDYmA;jYEdyeW3K66.jqnt1CaDYmA&filter=ou:"+orgUnit.id+"&displayProperty=NAME&tableLayout=true&columns=&rows=pe;dx").then(function (json) {
+
+                    $("#oneT").html(json.rows[0][8]);
+                    oneT=json.rows[0][8];
+                    $("#twoT").html(json.rows[1][8]);
+                    twoT=json.rows[1][8];
+                    $("#threeT").html(json.rows[2][8]);
+                    threeT=json.rows[2][8];
+                    $("#fourT").html(json.rows[3][8]);
+                    fourT=json.rows[3][8];
+                    $("#fiveT").html(json.rows[4][8]);
+                    fiveT=json.rows[4][8];
+                    $("#sixT").html(json.rows[5][8]);
+                    sixT=json.rows[5][8];
+                    $("#sevenT").html(json.rows[6][8]);
+                    sevenT=json.rows[6][8];
+                    $("#eightT").html(json.rows[7][8]);
+                    eightT=json.rows[7][8];
+                    $("#nineT").html(json.rows[8][8]);
+                    nineT=json.rows[8][8];
+                    $("#tenT").html(json.rows[9][8]);
+                    tenT=json.rows[9][8];
+                    
+                    console.log(json.rows);
+                    if(oneT!=null && oneT!=0 && oneT!=""){
+                       var achievement=Number(one)/Number(oneT)*100;
+                       $("#oneA").html(achievement.toFixed(2));
+                    }
+                    if(twoT!=null && twoT!=0 && twoT!=""){
+                       var achievement=Number(two)/Number(twoT)*100;
+                       $("#twoA").html(achievement.toFixed(2));
+                    }
+                    if(threeT!=null && threeT!=0 && threeT!=""){
+                       var achievement=Number(three)/Number(threeT)*100;
+                       $("#threeA").html(achievement.toFixed(2));
+                    }
+                    if(fourT!=null && fourT!=0 && fourT!=""){
+                       var achievement=Number(four)/Number(fourT)*100;
+                       $("#fourA").html(achievement.toFixed(2));
+                    }
+                    if(fiveT!=null && fiveT!=0 && fiveT!=""){
+                       var achievement=Number(five)/Number(fiveT)*100;
+                       $("#fiveA").html(achievement.toFixed(2));
+                    }
+                    if(sixT!=null && sixT!=0 && sixT!=""){
+                       var achievement=Number(six)/Number(sixT)*100;
+                       $("#sixA").html(achievement.toFixed(2));
+                    }
+                    if(sevenT!=null && sevenT!=0 && sevenT!=""){
+                       var achievement=Number(seven)/Number(sevenT)*100;
+                       $("#sevenA").html(achievement.toFixed(2));
+                    }
+                    if(eightT!=null && eightT!=0 && eightT!=""){
+                       var achievement=Number(eight)/Number(eightT)*100;
+                       $("#eightA").html(achievement.toFixed(2));
+                    }
+                    if(nineT!=null && nineT!=0 && nineT!=""){
+                       var achievement=Number(nine)/Number(nineT)*100;
+                       $("#nineA").html(achievement.toFixed(2));
+                    }
+                    if(tenT!=null && tenT!=0 && tenT!=""){
+                       var achievement=Number(ten)/Number(tenT)*100;
+                       $("#tenA").html(achievement.toFixed(2));
+                    }
+                    
+                });
+                });
+        
+        });
+</script>
+
+</head><body><div class="gridDiv">
+<h3>WASH Report - <span id="orgUnit"></span> &nbsp;Period-<span id="period"></span></h3>
+<h4></h4>
+<table class="listTable gridTable">
+<thead>
+<tr>
+<th colspan="5" style="background-color: rgb(102, 0, 153);">
+<h1 style="text-align: -webkit-center;"><span style="font-size:16px;"><span style="color:#FFFFFF;"><strong><span style="font-family:arial,helvetica,sans-serif;"><span style="line-height: 20.7999992370605px;">WASH</span></span></strong></span></span></h1>
+</th>
+</tr>
+<tr>
+<th style="text-align:left">Indicator</th>
+<th>Target</th>
+<th>Result</th>
+<th>Achievement(%)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left; font-weight: bold">
+    Standard: 3.1.8.1-2 Number of people in target areas gaining access to improved drinking water supply
+</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr>
+<td style="text-align:left">Male</td>
+<td><span id="oneT"></span></td>
+<td><span id="one"></span></td>
+<td><span id="oneA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Female</td>
+<td><span id="twoT"></span></td>
+<td><span id="two"></span></td>
+<td><span id="twoA"></span></td>
+</tr>
+
+<tr>
+<td style="text-align:left; font-weight: bold">
+    Standard: 3.1.8.2-2 Number of people in target areas gaining access to improved sanitation facilities as a result of USG assistance (NOTE - SHOULD NOT INCLUDE NUMBERS FROM SCHOOLS AND HEALTH FACILITIES)
+</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr>
+<td style="text-align:left">Male</td>
+<td><span id="threeT"></span></td>
+<td><span id="three"></span></td>
+<td><span id="threeA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Female</td>
+<td><span id="fourT"></span></td>
+<td><span id="four"></span></td>
+<td><span id="fourA"></span></td>
+</tr>
+
+<tr>
+<td style="text-align:left">Standard: 3.1.8.2-3 Number of improved toilets provided in institutional settings (Total)</td>
+<td><span id="fiveT"></span></td>
+<td><span id="five"></span></td>
+<td><span id="fiveA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Standard: 3.1.6.8-5 Number of communities certified as "open defecation free" as a result of USG assistance. (Total)</td>
+<td><span id="sixT"></span></td>
+<td><span id="six"></span></td>
+<td><span id="sixA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Standard: 3.1.6.8-4 Number of liters of drinking water disinfected with point-of-use treatment products (Total)</td>
+<td><span id="sevenT"></span></td>
+<td><span id="seven"></span></td>
+<td><span id="sevenA"></span></td>
+</tr>
+
+<tr>
+<td style="text-align:left; font-weight: bold">
+   Standard: 3.1.6.8-1 Percentage of households with soap and water at a handwashing station commonly used by family members (Denominator - Total households ( of project catchment area)
+</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr>
+<td style="text-align:left">Numerator: Number of households with soap and water (Total)</td>
+<td><span id="eightT"></span></td>
+<td><span id="eight"></span></td>
+<td><span id="eightA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Denominator: Total numberof households of project catchment area (Total)</td>
+<td><span id="nineT"></span></td>
+<td><span id="nine"></span></td>
+<td><span id="nineA"></span></td>
+</tr>
+
+<tr>
+<td style="text-align:left">Custom: Number of individuals trained to implement improved sanitation methods: (Total)</td>
+<td><span id="tenT"></span></td>
+<td><span id="ten"></span></td>
+<td><span id="tenA"></span></td>
+</tr>
+</tbody>
+</table>
+</div></body></html>

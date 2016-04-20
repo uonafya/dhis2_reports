@@ -1,0 +1,237 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252"></head><body><div style="padding:10px 0">
+
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/DT_bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/demo_page.css">
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/header.ccss">
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/bootstrap-combined.min.css">
+	<link rel="stylesheet" type="text/css" href="./Facility Performance Monitoring Score card_files/dataTables.bootstrap.css">
+	<script type="text/javascript" charset="utf-8" src="./Facility Performance Monitoring Score card_files/jquery.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./Facility Performance Monitoring Score card_files/jquery.dataTables.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./Facility Performance Monitoring Score card_files/ZeroClipboard.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./Facility Performance Monitoring Score card_files/TableTools.js"></script>
+	<script type="text/javascript" charset="utf-8" src="./Facility Performance Monitoring Score card_files/dataTables.bootstrap.js"></script>
+	
+	<script type="text/javascript">
+			
+		
+    $(document).ready(function () {
+        var orgUnit = dhis2.report.organisationUnit;
+        var period = dhis2.report.periods;
+        $("#orgUnit").html(orgUnit.name);
+        $("#period").html(period);
+
+		$.get("../api/analytics.json?dimension=dx:p4JRNrjpkLr;travzZ9fbHI;nHsRCRmdgRf;CPYcd89Jgat;fCUaxiQYZzm;l1KEm2mpsDU;YHHOt4ktnD4;pGF8aDdlSxY"+
+			"&dimension=pe:"+period+"&dimension=ou:"+orgUnit.id+"&hierarchyMeta=true&displayProperty=NAME&showHierarchy=true&&tableLayout=true&columns=pe;dx&rows=ou",
+		 function( json ) {
+        
+        if(json.rows[0][2]!=""){
+        	$( "#fic" ).html( json.rows[0][2] );
+        	if(json.rows[0][2]>=80){
+        	$("span#fic").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][2]<80 && json.rows[0][2]>=50){
+        		$("span#fic").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][2]<50){
+        		$("span#fic").parent().css("background-color", "red");
+        	}
+        }
+
+        if(json.rows[0][3]!=""){
+        	$( "#arv" ).html( json.rows[0][3] );
+        	if(json.rows[0][3]>=80){
+        	$("span#arv").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][3]<80 && json.rows[0][3]>=50){
+        		$("span#arv").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][3]<50){
+        		$("span#arv").parent().css("background-color", "red");
+        	}
+        }
+         if(json.rows[0][4]!=""){
+        	$( "#art" ).html( json.rows[0][4] );
+        	if(json.rows[0][4]>=80){
+        	$("span#art").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][4]<80 && json.rows[0][4]>=50){
+        		$("span#art").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][4]<50){
+        		$("span#art").parent().css("background-color", "red");
+        	}
+        }
+         if(json.rows[0][5]!=""){
+        	$( "#del" ).html( json.rows[0][5] );
+        	if(json.rows[0][5]>=80){
+        	$("span#del").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][5]<80 && json.rows[0][5]>=50){
+        		$("span#del").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][5]<50){
+        		$("span#del").parent().css("background-color", "red");
+        	}
+        }
+         if(json.rows[0][6]!=""){
+        	$( "#fmmr" ).html( json.rows[0][6] );
+        	if(json.rows[0][6]>=80){
+        	$("span#fmmr").parent().css("background-color", "red");
+        	}
+        	if(json.rows[0][6]<80 && json.rows[0][6]>=50){
+        		$("span#fmmr").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][6]<50){
+        		$("span#fmmr").parent().css("background-color", "green");
+        	}
+        }
+         if(json.rows[0][7]!=""){
+        	$( "#aud" ).html( json.rows[0][7] );
+        	if(json.rows[0][7]>=80){
+        	$("span#aud").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][7]<80 && json.rows[0][7]>=50){
+        		$("span#aud").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][7]<50){
+        		$("span#aud").parent().css("background-color", "red");
+        	}
+        }
+         if(json.rows[0][8]!=""){
+        	$( "#fsb" ).html( json.rows[0][8] );
+        	if(json.rows[0][8]>=80){
+        	$("span#fsb").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][8]<80 && json.rows[0][8]>=50){
+        		$("span#fsb").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][8]<50){
+        		$("span#fsb").parent().css("background-color", "red");
+        	}
+        }
+         if(json.rows[0][9]!=""){
+        	$( "#anc" ).html( json.rows[0][9] );
+        	if(json.rows[0][9]>=80){
+        	$("span#anc").parent().css("background-color", "green");
+        	}
+        	if(json.rows[0][9]<80 && json.rows[0][9]>=50){
+        		$("span#anc").parent().css("background-color", "yellow");
+        	}
+        	if(json.rows[0][9]<50){
+        		$("span#anc").parent().css("background-color", "red");
+        	}
+        }
+        // $( "#fic" ).html( json.rows[0][2] );
+        // $( "#arv" ).html( json.rows[0][3] );
+        // $( "#art" ).html( json.rows[0][4] );
+        // $( "#del" ).html( json.rows[0][5] );
+        // $( "#fmmr" ).html( json.rows[0][6] );
+        // $( "#aud" ).html( json.rows[0][7] );
+        // $( "#fsb" ).html( json.rows[0][8] );
+        // $( "#anc" ).html( json.rows[0][9] );
+        console.log(json);
+        //get name of county
+        var ou = json.rows[0][1];
+		var unit = ou.split("/");
+		$( "#county" ).html( unit[2] );
+		
+		// Apply html data table classes
+						$('.listTable.gridTable').addClass('bordered-table zebra-striped dataTable');
+						// Apply data table styling
+						$('.listTable.gridTable').dataTable( {
+							"sDom": "<'row-fluid'<'span6'TRl><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+							"aLengthMenu": [[10, 25, 50,100, -1], [10, 25, 50,100, "All"]],
+							"oTableTools": {
+								"aButtons": [								
+									"copy",
+									"print",
+									"csv",
+									"xls",
+									"pdf"
+								],
+								"sSwfPath": "https://dhis.moh.go.tz/static/swf/copy_csv_xls_pdf.swf"
+							}
+						} 
+						);
+    } );    
+} );
+
+</script>
+<h3>Ministry of Health</h3>
+<h3>Facility Performance Monitoring Score Card Data aggregation form </h3>
+<h3>County Name: <span id="county"></span>&nbsp;&nbsp;&nbsp;&nbsp;  Facility Name:<span id="orgUnit"></span>&nbsp;&nbsp;&nbsp;&nbsp;  Period: <span id="period"></span></h3>
+<table class="listTable gridTable">
+	<tbody>
+		<tr>
+			<th>Investment Area</th>
+			<th>Indicator</th>
+			<th>Data Elements</th>
+			<th>Unit of Measure</th>
+			<th>Achievement</th>
+			<th>Data Source</th>
+		</tr>
+
+	<tr>
+		<td colspan="1" rowspan="8">Service Delivery</td>
+		<td>Proportion of children under 1 fully immunized</td>
+		<td>No. of Fully immunized children under 1 / Total under 1 children in the catchment population</td>
+		<td>%</td>
+		<td><span id="fic"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>PMTCT Prophylaxis rate (Mother)</td>
+		<td>No. of HIV Positive pregnant women on ARVs/ Total No. of HIV Positive pregnant women Â&nbsp;</td>
+		<td>%</td>
+		<td><span id="arv"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>Percentage of HIV positive started on ARVs</td>
+		<td>Number of HIV Clients started on ARVs/Number of patients who qualify to start ARVsÂ&nbsp;</td>
+		<td>%</td>
+		<td><span id="art"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>Health facility  utilization for skilled deliveries </td>
+		<td>No. of deliveries conducted by skilled health attendant/ No. of 1st ANC visit</td>
+		<td>%</td>
+		<td><span id="del"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>Percentage of facility based  Maternal deaths </td>
+		<td>No. of Maternal deaths in the facility/Total deliveries in the Facility</td>
+		<td>%</td>
+		<td><span id="fmmr"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>Proportion of Maternal Deaths Audited</td>
+		<td>No. of maternal deaths Audited (reviewed) in Health facilities/Total no of maternal deaths reportedÂ&nbsp;</td>
+		<td>%</td>
+		<td><span id="aud"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>Percentage of facility based Fresh still births</td>
+		<td>No. of fresh still births/ Total  still births</td>
+		<td>%</td>
+		<td><span id="fsb"></span></td>
+		<td>DHIS</td>
+	</tr>
+	<tr>
+		<td>% of pregnant women attending 4 ANC visits</td>
+		<td>No. of pregnant women attending 4 ANC visits/ Total No. of pregnant women attending 1st ANC visit</td>
+		<td>%</td>
+		<td><span id="anc"></span></td>
+		<td>DHIS</td>
+	</tr>
+	</tbody>
+	<tfoot>
+</tfoot></table>
+</div>
+</body></html>

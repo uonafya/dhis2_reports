@@ -1,0 +1,273 @@
+
+<!-- saved from url=(0038)file:///home/banga/Downloads/FPRH.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+.gridDiv {
+  font-family: sans-serif, arial;
+}
+
+table.gridTable {
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+
+.gridTable th, td {
+  padding: 8px 4px 7px 4px;
+  border: 1px solid #e7e7e7;
+}
+
+.gridTable th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+            var orgUnit = dhis2.report.organisationUnit;
+            var period = dhis2.report.periods;
+            var targetperiod = $.trim(period).substring(0,4);
+            $("#orgUnit").html(orgUnit.name);
+            $("#period").html(period);
+            var SJZeVNGhhlu=0;
+            var iKWwJHs3nUb=0;
+            var MVOOSNvPLVH=0;
+            var POg05zvI9nz=0;
+            var I1YmRdVsKkH=0;
+            var wb0YeMVVMmN=0;
+            var dOMA3iPWHMA=0;
+            var s77AF7B15DK=0;
+
+        //get targets (national)
+            $.get("../api/analytics?dimension=dx:SJZeVNGhhlu;iKWwJHs3nUb;MVOOSNvPLVH;POg05zvI9nz;I1YmRdVsKkH;wb0YeMVVMmN;dOMA3iPWHMA;s77AF7B15DK&filter=ou:"+orgUnit.id+"&filter=pe:"+targetperiod+"&displayProperty=NAME&tableLayout=true&columns=&rows=dx", function (json_target) {
+
+                if(json_target.rows[0][4]){
+                    SJZeVNGhhlu=json_target.rows[0][4];
+                }
+                $("#SJZeVNGhhlu").html(SJZeVNGhhlu);
+
+                if(json_target.rows[1][4]){
+                    iKWwJHs3nUb = json_target.rows[1][4];
+                }
+                $("#iKWwJHs3nUb").html(iKWwJHs3nUb);
+
+                if(json_target.rows[2][4]){
+                    MVOOSNvPLVH = json_target.rows[2][4];
+                }
+                $("#MVOOSNvPLVH").html(MVOOSNvPLVH);
+
+                if(json_target.rows[3][4]){
+                    POg05zvI9nz = json_target.rows[3][4];
+                }
+                $("#POg05zvI9nz").html(POg05zvI9nz);
+
+                if(json_target.rows[4][4]){
+                    I1YmRdVsKkH = json_target.rows[4][4];
+                }
+                $("#I1YmRdVsKkH").html(I1YmRdVsKkH);
+
+                if(json_target.rows[5][4]){
+                    wb0YeMVVMmN = json_target.rows[5][4];
+                }
+                $("#wb0YeMVVMmN").html(wb0YeMVVMmN);
+
+                if(json_target.rows[6][4]){
+                    dOMA3iPWHMA = json_target.rows[6][4];
+                }
+                $("#dOMA3iPWHMA").html(dOMA3iPWHMA);
+
+                if(json_target.rows[7][4]){
+                    s77AF7B15DK = json_target.rows[7][4];
+                }
+                $("#s77AF7B15DK1").html(s77AF7B15DK);
+;
+
+            });
+
+        //get performance
+        $.get("../api/analytics?dimension=dx:yag8uUIZXJm;CZrqSsVypeL;eJbRmgU8IEp;uJdGPdD2377;oyoQ9zfxj1i;scsHk88uo4x;OVTFseJscxn;s77AF7B15DK&filter=ou:"+orgUnit.id+"&filter=pe:"+period+"&displayProperty=NAME&tableLayout=true&columns=&rows=dx", function (json) {
+            if(json.rows[0][4]){
+                $("#yag8uUIZXJm").html(json.rows[0][4]);
+            }else{
+                $("#yag8uUIZXJm").html(0);
+            }
+
+            if(json.rows[1][4]){
+                $("#CZrqSsVypeL").html(json.rows[1][4]);
+            }else{
+                $("#CZrqSsVypeL").html(0);
+            }
+
+            if(json.rows[2][4]){
+                $("#eJbRmgU8IEp").html(json.rows[2][4]);
+            }else{
+                $("#eJbRmgU8IEp").html(0);
+            }
+
+            if(json.rows[3][4]){
+                $("#uJdGPdD2377").html(json.rows[3][4]);
+            }else{
+                $("#uJdGPdD2377").html(0);
+            }
+
+            if(json.rows[4][4]){
+                $("#oyoQ9zfxj1i").html(json.rows[4][4]);
+            }else{
+                $("#oyoQ9zfxj1i").html(0);
+            }
+
+            if(json.rows[5][4]){
+                $("#scsHk88uo4x").html(json.rows[5][4]);
+            }else{
+                $("#scsHk88uo4x").html(0);
+            }
+
+            if(json.rows[6][4]){
+                $("#OVTFseJscxn").html(json.rows[6][4]);
+            }else{
+                $("#OVTFseJscxn").html(0);
+            }
+
+            if(json.rows[7][4]){
+                $("#s77AF7B15DK").html(json.rows[7][4]);
+            }else{
+                $("#s77AF7B15DK").html(0);
+            }
+
+
+//             Using target and performance to calculate percentage achievement
+            if((SJZeVNGhhlu) != null && SJZeVNGhhlu != 0 && SJZeVNGhhlu != ""){
+                var achievement = Number(json.rows[0][4])/Number(SJZeVNGhhlu)*100;
+                $("#one").html(achievement.toFixed(2));
+            }else{
+                $("#one").html(0.00);
+            }
+
+            if((iKWwJHs3nUb) != null && iKWwJHs3nUb != 0 && iKWwJHs3nUb != ""){
+//                        alert(json_target.rows[1][4]);
+                var achievement = Number(json.rows[1][4])/Number(iKWwJHs3nUb)*100;
+                $("#two").html(achievement.toFixed(2));
+            }else{
+                $("#two").html(0.00);
+            }
+
+            if((MVOOSNvPLVH) != null && MVOOSNvPLVH != 0 && MVOOSNvPLVH != ""){
+                var achievement = Number(json.rows[2][4])/Number(MVOOSNvPLVH)*100;
+                $("#three").html(achievement.toFixed(2));
+            }else{
+                $("#three").html(0.00);
+            }
+
+            if((POg05zvI9nz) != null && POg05zvI9nz != 0 && POg05zvI9nz != ""){
+                var achievement = Number(json.rows[3][4])/Number(POg05zvI9nz)*100;
+                $("#four").html(achievement.toFixed(2));
+            }else{
+                $("#four").html(0.00);
+            }
+
+            if((I1YmRdVsKkH) != null && I1YmRdVsKkH != 0 && I1YmRdVsKkH != ""){
+                var achievement = Number(json.rows[4][4])/Number(I1YmRdVsKkH)*100;
+                $("#five").html(achievement.toFixed(2));
+            }else{
+                $("#five").html(0.00);
+            }
+
+            if((wb0YeMVVMmN) != null && wb0YeMVVMmN != 0 && wb0YeMVVMmN != ""){
+                var achievement = Number(json.rows[5][4])/Number(wb0YeMVVMmN)*100;
+                $("#six").html(achievement.toFixed(2));
+            }else{
+                $("#six").html(0.00);
+            }
+
+            if((dOMA3iPWHMA) != null && dOMA3iPWHMA != 0 && dOMA3iPWHMA != ""){
+                var achievement = Number(json.rows[6][4])/Number(dOMA3iPWHMA)*100;
+                $("#seven").html(achievement.toFixed(2));
+            }else{
+                $("#seven").html(0.00);
+            }
+
+            if((s77AF7B15DK) != null && s77AF7B15DK != 0 && s77AF7B15DK != ""){
+                var achievement = Number(json.rows[7][4])/Number(s77AF7B15DK)*100;
+                $("#eight").html(achievement.toFixed(2));
+            }else{
+                $("#eight").html(0.00);
+            }
+        });
+
+
+});
+
+</script>
+
+<style type="text/css"></style></head><body>
+<div class="gridDiv">
+<h3>Family Planning and Reproductive Health - <span id="orgUnit"></span> </h3>
+<table class="listTable gridTable">
+<thead>
+<tr>
+<th colspan="4" style="background-color: rgb(102, 0, 153);">
+<h1 style="text-align: -webkit-center;"><span style="font-size:16px;"><span style="color:#FFFFFF;"><strong><span style="font-family:arial,helvetica,sans-serif;"><span style="line-height: 20.7999992370605px;"><span id="period"></span> - FPRH Report</span></span></strong></span></span></h1>
+</th>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><strong>Indicators</strong></td>
+<th>Target</th>
+<th>Result</th>
+<th>% Achievement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+
+<td style="text-align:left">FPRH Standard: 3.1.7.1-1 Couple-years of protection (CYP) in USG-supported programs</td>
+<td><span id="SJZeVNGhhlu"></span></td>
+<td><span id="yag8uUIZXJm"></span></td>
+<td><span id="one"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left; font-weight: bold">Standard: 3.1.7.1-2 Percent of service delivery points (SDP) that experience stock out at any time during the reporting period of a contraceptive method that the SDP is expected to provide</td>
+<td><span id="iKWwJHs3nUb"></span></td>
+<td><span id="CZrqSsVypeL"></span></td>
+<td><span id="two"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left"> <span style="font-weight: bold">Numerator:</span> Number of service delivery sites providing family planning(FP) counselling and/or services</td>
+<td><span id="MVOOSNvPLVH"></span></td>
+<td><span id="eJbRmgU8IEp"></span></td>
+<td><span id="three"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left"><span style="font-weight: bold">Denominator:</span> Number of service delivery points (SDP) that experience stock out at any time during the reporting period of a contraceptive method that the SDP is expected to provide</td>
+<td><span id="POg05zvI9nz"></span></td>
+<td><span id="uJdGPdD2377"></span></td>
+<td><span id="four"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left">FPRH Custom: List of new policies developed with USG assistance to improve access and use of FP/RH, MCH and Nutrition services, by stage of development</td>
+<td><span id="I1YmRdVsKkH"></span></td>
+<td><span id="oyoQ9zfxj1i"></span></td>
+<td><span id="five"></span>%</td>
+</tr>
+
+<tr>
+<td style="text-align:left">Custom: Number  of new policies developed with USG assistance to improve access and use of FP/RH, MCH and Nutrition services, by stage of development:</td>
+<td><span id="wb0YeMVVMmN"></span></td>
+<td><span id="scsHk88uo4x"></span></td>
+<td><span id="six"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left">Custom: Number of new Guidelines or Strategic Plans developed with USG assistance to improve access to and use of FP/RH:</td>
+<td><span id="dOMA3iPWHMA"></span></td>
+<td><span id="OVTFseJscxn"></span></td>
+<td><span id="seven"></span>%</td>
+</tr>
+<tr>
+<td style="text-align:left">Percent increase on contraceptive commodity reporting rates.</td>
+<td><span id="s77AF7B15DK1"></span></td>
+<td><span id="s77AF7B15DK"></span></td>
+<td><span id="eight"></span>%</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</body></html>

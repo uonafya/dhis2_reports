@@ -1,0 +1,292 @@
+
+<!--@author-dennis-->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">
+.gridDiv {
+  font-family: sans-serif, arial;
+}
+
+table.gridTable {
+  border-collapse: collapse;
+  font-size: 11pt;
+}
+
+.gridTable th, td {
+  padding: 8px 4px 7px 4px;
+  border: 1px solid #e7e7e7;
+}
+
+.gridTable th {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+</style>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+            var orgUnit = dhis2.report.organisationUnit;
+            var period = dhis2.report.periods;
+            var targetPeriod = $.trim(period).substring(0,4);
+            $("#orgUnit").html(orgUnit.name);
+            $("#period").html(period);
+            //Variables Performance, Target
+            var one=0;
+            var oneT=0;
+
+            var two=0;
+            var twoT=0;
+
+            var three=0;
+            var threeT=0;
+           
+            var four=0;
+            var fourT=0;
+           
+            var five=0;
+            var fiveT=0;
+            
+            var six=0;
+            var sixT=0;
+           
+            var seven=0;
+            var sevenT=0;
+           
+            var eight=0;
+            var eightT=0;
+           
+            var nine=0;
+            var nineT=0;
+           
+            var ten=0;
+            var tenT=0;
+          
+            var eleven=0;
+            var elevenT=0;
+            
+            var twelve=0;
+            var twelveT=0;
+            
+            //Performance
+            $.get("../api/analytics.json?dimension=pe:"+period+"&dimension=dx:LuoW0czfDYz.jqnt1CaDYmA;KwObHGlw61V.jqnt1CaDYmA;TT0d1xiGSIM.jqnt1CaDYmA;ycos6k0Msox.quiOs04tZfb;ycos6k0Msox.acQS5ivlth5;ycos6k0Msox.j1tKxuLdBaK;ycos6k0Msox.q3zHa3JpMXS;lkWzbOeEtUS.UNaaWWF7TUh;lkWzbOeEtUS.GBw021b7Vck;frqbr3qC8ED.jqnt1CaDYmA;CnLcC0X1TsW.jqnt1CaDYmA;GSieYKKfZG7.jqnt1CaDYmA&filter=ou:"+orgUnit.id+"&displayProperty=NAME&tableLayout=true&columns=&rows=pe;dx").then(function (json) {
+
+                    $("#one").html(json.rows[0][8]);
+                    one=json.rows[0][8];
+                    $("#two").html(json.rows[1][8]);
+                    two=json.rows[1][8];
+                    $("#three").html(json.rows[2][8]);
+                    three=json.rows[2][8];
+                    $("#four").html(json.rows[3][8]);
+                    four=json.rows[3][8];
+                    $("#five").html(json.rows[4][8]);
+                    five=json.rows[4][8];
+                    $("#six").html(json.rows[5][8]);
+                    six=json.rows[5][8];
+                    $("#seven").html(json.rows[6][8]);
+                    seven=json.rows[6][8];
+                    $("#eight").html(json.rows[7][8]);
+                    eight=json.rows[7][8];
+                    $("#nine").html(json.rows[8][8]);
+                    nine=json.rows[8][8];
+                    $("#ten").html(json.rows[9][8]);
+                    ten=json.rows[9][8];
+                    $("#eleven").html(json.rows[10][8]);
+                    eleven=json.rows[10][8];
+                    $("#twelve").html(json.rows[11][8]);
+                    twelve=json.rows[11][8];
+                    
+                    console.log(json.rows);
+                    //Target
+             $.get("../api/analytics.json?dimension=pe:"+targetPeriod+"&dimension=dx:PV237qyIwup.jqnt1CaDYmA;gJrhjhtRcpb.jqnt1CaDYmA;BmfPXYn1TOW.jqnt1CaDYmA;NrsqrvNFCjN.quiOs04tZfb;NrsqrvNFCjN.acQS5ivlth5;NrsqrvNFCjN.j1tKxuLdBaK;NrsqrvNFCjN.q3zHa3JpMXS;KFsFgR3vIRB.UNaaWWF7TUh;KFsFgR3vIRB.GBw021b7Vck;RUpD9VM8rtd.jqnt1CaDYmA;J3rE43DBpu8.jqnt1CaDYmA;PAJz0d7uQBT.jqnt1CaDYmA&filter=ou:"+orgUnit.id+"&displayProperty=NAME&tableLayout=true&columns=&rows=pe;dx").then(function (json) {
+
+                    $("#oneT").html(json.rows[0][8]);
+                    oneT=json.rows[0][8]
+                    $("#twoT").html(json.rows[1][8]);
+                    twoT=json.rows[1][8]
+                    $("#threeT").html(json.rows[2][8]);
+                    threeT=json.rows[2][8]
+                    $("#fourT").html(json.rows[3][8]);
+                    fourT=json.rows[3][8]
+                    $("#fiveT").html(json.rows[4][8]);
+                    fiveT=json.rows[4][8]
+                    $("#sixT").html(json.rows[5][8]);
+                    sixT=json.rows[5][8]
+                    $("#sevenT").html(json.rows[6][8]);
+                    sevenT=json.rows[6][8]
+                    $("#eightT").html(json.rows[7][8]);
+                    eightT=json.rows[7][8]
+                    $("#nineT").html(json.rows[8][8]);
+                    nineT=json.rows[8][8]
+                    $("#tenT").html(json.rows[9][8]);
+                    tenT=json.rows[9][8]
+                    $("#elevenT").html(json.rows[10][8]);
+                    elevenT=json.rows[10][8]
+                    $("#twelveT").html(json.rows[11][8]);
+                    twelveT=json.rows[11][8]
+                    
+                    console.log(json.rows);
+                    if(oneT!=null && oneT!=0 && oneT!=""){
+                       var achievement=Number(one)/Number(oneT)*100;
+                       $("#oneA").html(achievement.toFixed(2));
+                    }
+                    if(twoT!=null && twoT!=0 && twoT!=""){
+                       var achievement=Number(two)/Number(twoT)*100;
+                       $("#twoA").html(achievement.toFixed(2));
+                    }
+                    if(threeT!=null && threeT!=0 && threeT!=""){
+                       var achievement=Number(three)/Number(threeT)*100;
+                       $("#threeA").html(achievement.toFixed(2));
+                    }
+                    if(fourT!=null && fourT!=0 && fourT!=""){
+                       var achievement=Number(four)/Number(fourT)*100;
+                       $("#fourA").html(achievement.toFixed(2));
+                    }
+                    if(fiveT!=null && fiveT!=0 && fiveT!=""){
+                       var achievement=Number(five)/Number(fiveT)*100;
+                       $("#fiveA").html(achievement.toFixed(2));
+                    }
+                    if(sixT!=null && sixT!=0 && sixT!=""){
+                       var achievement=Number(six)/Number(sixT)*100;
+                       $("#sixA").html(achievement.toFixed(2));
+                    }
+                    if(sevenT!=null && sevenT!=0 && sevenT!=""){
+                       var achievement=Number(seven)/Number(sevenT)*100;
+                       $("#sevenA").html(achievement.toFixed(2));
+                    }
+                    if(eightT!=null && eightT!=0 && eightT!=""){
+                       var achievement=Number(eight)/Number(eightT)*100;
+                       $("#eightA").html(achievement.toFixed(2));
+                    }
+                    if(nineT!=null && nineT!=0 && nineT!=""){
+                       var achievement=Number(nine)/Number(nineT)*100;
+                       $("#nineA").html(achievement.toFixed(2));
+                    }
+                    if(tenT!=null && tenT!=0 && tenT!=""){
+                       var achievement=Number(ten)/Number(tenT)*100;
+                       $("#tenA").html(achievement.toFixed(2));
+                    }
+
+                    if(elevenT!=null && elevenT!=0 && elevenT!=""){
+                       var achievement=Number(eleven)/Number(elevenT)*100;
+                       $("#elevenA").html(achievement.toFixed(2));
+                    }
+
+                    if(twelveT!=null && twelveT!=0 && twelveT!=""){
+                       var achievement=Number(twelve)/Number(twelveT)*100;
+                       $("#twelveA").html(achievement.toFixed(2));
+                    }
+                    
+                });
+                });
+            
+        });
+</script>
+
+<style type="text/css"></style></head><body>
+<div class="gridDiv">
+<h3>Nutrition - <span id="orgUnit"></span> -<span id="period"></span></h3>
+<table class="listTable gridTable">
+<thead>
+<tr>
+<th colspan="5" style="background-color: rgb(102, 0, 153);">
+<h1 style="text-align: -webkit-center;"><span style="font-size:16px;"><span style="color:#FFFFFF;"><strong><span style="font-family:arial,helvetica,sans-serif;"><span style="line-height: 20.7999992370605px;">Nutrition</span></span></strong></span></span></h1>
+</th>
+</tr>
+<tr>
+<td colspan="1" rowspan="1"><strong>Indicators</strong></td>
+<th>Target</th>
+<th>Result</th>
+<th>% Achievement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">Custom: Number of children under five who are Underweight</td>
+<td><span id="oneT"></span></td>
+<td><span id="one"></span></td>
+<td><span id="oneA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Custom: Number of children under five who are wasted</td>
+<td><span id="twoT"></span></td>
+<td><span id="two"></span></td>
+<td><span id="twoA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Custom: Total number of children under five years</td>
+<td><span id="threeT"></span></td>
+<td><span id="three"></span></td>
+<td><span id="threeA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs (Community healthcare worker)</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr>
+<td style="text-align: left">Male</td>
+<td><span id="fourT"></span></td>
+<td><span id="four"></span></td>
+<td><span id="fourA"></span></td>
+</tr>
+<tr>
+<td style="text-align: left">Female</td>
+<td><span id="fiveT"></span></td>
+<td><span id="five"></span></td>
+<td><span id="fiveA"></span></td>
+</tr>
+
+
+<tr>
+<td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs (Health care worker)</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr>
+<td style="text-align: left">Male</td>
+<td><span id="sixT"></span></td>
+<td><span id="six"></span></td>
+<td><span id="sixA"></span></td>
+</tr>
+<tr>
+<td style="text-align: left">Female</td>
+<td><span id="sevenT"></span></td>
+<td><span id="seven"></span></td>
+<td><span id="sevenA"></span></td>
+</tr>
+
+
+<tr>
+<td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs-health care</td>
+<td colspan="3" style="background-color: grey"></td>
+</tr>
+<tr><td style="text-align:left">Community healthcare worker</td>
+<td><span id="eightT"></span></td>
+<td><span id="eight"></span></td>
+<td><span id="eightA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Health care worker</td>
+<td><span id="nineT"></span></td>
+<td><span id="nine"></span></td>
+<td><span id="nineA"></span></td>
+
+</tr>
+<tr>
+<td style="text-align:left">Standard: 3.1.9-15 Number of children (under 5 yrs) reached by USG-supported nutrition programs</td>
+<td><span id="tenT"></span></td>
+<td><span id="ten"></span></td>
+<td><span id="tenA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Standard: 3.1.9.2-2 Number of health facilities with established capacity to manage acute under-nutrition</td>
+<td><span id="elevenT"></span></td>
+<td><span id="eleven"></span></td>
+<td><span id="elevenA"></span></td>
+</tr>
+<tr>
+<td style="text-align:left">Standard: 3.1.9.2-3 Number of children under 5 years of age who received Vitamin A from USG-supported programs</td>
+<td><span id="twelveT"></span></td>
+<td><span id="twelve"></span></td>
+<td><span id="twelveA"></span></td>
+</tr>
+</tbody>
+</table>
+
+</div></body></html>

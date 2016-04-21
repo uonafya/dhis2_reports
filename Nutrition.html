@@ -43,18 +43,27 @@ table.gridTable {
            
             var five=0;
             var fiveT=0;
+
+            var fourfive
+            var fourfiveT=0;
             
             var six=0;
             var sixT=0;
            
             var seven=0;
             var sevenT=0;
+
+            var sixseven=0;
+            var sixsevenT=0;
            
             var eight=0;
             var eightT=0;
            
             var nine=0;
             var nineT=0;
+
+            var eightnine=0;
+            var eightnineT=0;
            
             var ten=0;
             var tenT=0;
@@ -78,14 +87,20 @@ table.gridTable {
                     four=json.rows[3][8];
                     $("#five").html(json.rows[4][8]);
                     five=json.rows[4][8];
+                    fourfive=Number(four)+Number(five);
+                    $("#fourfive").html(fourfive);
                     $("#six").html(json.rows[5][8]);
                     six=json.rows[5][8];
                     $("#seven").html(json.rows[6][8]);
                     seven=json.rows[6][8];
+                    sixseven=Number(six)+Number(seven);
+                    $("#sixseven").html(sixseven);
                     $("#eight").html(json.rows[7][8]);
                     eight=json.rows[7][8];
                     $("#nine").html(json.rows[8][8]);
                     nine=json.rows[8][8];
+                    eightnine=Number(eight)+Number(nine);
+                    $("#eightnine").html(eightnine);
                     $("#ten").html(json.rows[9][8]);
                     ten=json.rows[9][8];
                     $("#eleven").html(json.rows[10][8]);
@@ -107,14 +122,20 @@ table.gridTable {
                     fourT=json.rows[3][8]
                     $("#fiveT").html(json.rows[4][8]);
                     fiveT=json.rows[4][8]
+                    fourfiveT=Number(fourT)+Number(fiveT);
+                    $("#fourfiveT").html(fourfiveT);
                     $("#sixT").html(json.rows[5][8]);
                     sixT=json.rows[5][8]
                     $("#sevenT").html(json.rows[6][8]);
                     sevenT=json.rows[6][8]
+                    sixsevenT=Number(sixT)+Number(sevenT);
+                    $("#sixsevenT").html(sixsevenT);
                     $("#eightT").html(json.rows[7][8]);
                     eightT=json.rows[7][8]
                     $("#nineT").html(json.rows[8][8]);
                     nineT=json.rows[8][8]
+                    eightnineT=Number(eightT)+Number(nineT);
+                    $("#eightnineT").html(eightnineT);
                     $("#tenT").html(json.rows[9][8]);
                     tenT=json.rows[9][8]
                     $("#elevenT").html(json.rows[10][8]);
@@ -143,6 +164,12 @@ table.gridTable {
                        var achievement=Number(five)/Number(fiveT)*100;
                        $("#fiveA").html(achievement.toFixed(2));
                     }
+
+                    if(fourfiveT!=null && fourfiveT!=0 && fourfiveT!=""){
+                       var achievement=Number(fourfive)/Number(fourfiveT)*100;
+                       $("#fourfiveA").html(achievement.toFixed(2));
+                    }
+
                     if(sixT!=null && sixT!=0 && sixT!=""){
                        var achievement=Number(six)/Number(sixT)*100;
                        $("#sixA").html(achievement.toFixed(2));
@@ -151,6 +178,12 @@ table.gridTable {
                        var achievement=Number(seven)/Number(sevenT)*100;
                        $("#sevenA").html(achievement.toFixed(2));
                     }
+
+                    if(sixsevenT!=null && sixsevenT!=0 && sixsevenT!=""){
+                       var achievement=Number(sixseven)/Number(sixsevenT)*100;
+                       $("#sixsevenA").html(achievement.toFixed(2));
+                    }
+
                     if(eightT!=null && eightT!=0 && eightT!=""){
                        var achievement=Number(eight)/Number(eightT)*100;
                        $("#eightA").html(achievement.toFixed(2));
@@ -159,6 +192,12 @@ table.gridTable {
                        var achievement=Number(nine)/Number(nineT)*100;
                        $("#nineA").html(achievement.toFixed(2));
                     }
+
+                    if(eightnineT!=null && eightnineT!=0 && eightnineT!=""){
+                       var achievement=Number(eightnine)/Number(eightnineT)*100;
+                       $("#eightnineA").html(achievement.toFixed(2));
+                    }
+
                     if(tenT!=null && tenT!=0 && tenT!=""){
                        var achievement=Number(ten)/Number(tenT)*100;
                        $("#tenA").html(achievement.toFixed(2));
@@ -218,7 +257,9 @@ table.gridTable {
 </tr>
 <tr>
 <td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs (Community healthcare worker)</td>
-<td colspan="3" style="background-color: grey"></td>
+<td><span id="fourfiveT"></span></td>
+<td><span id="fourfive"></span></td>
+<td><span id="fourfiveA"></span></td>
 </tr>
 <tr>
 <td style="text-align: left">Male</td>
@@ -236,7 +277,9 @@ table.gridTable {
 
 <tr>
 <td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs (Health care worker)</td>
-<td colspan="3" style="background-color: grey"></td>
+<td><span id="sixsevenT"></span></td>
+<td><span id="sixseven"></span></td>
+<td><span id="sixsevenA"></span></td>
 </tr>
 <tr>
 <td style="text-align: left">Male</td>
@@ -254,7 +297,9 @@ table.gridTable {
 
 <tr>
 <td style="text-align:left; font-weight: bold">Standard: 3.1.9-1 Number of people trained in child health care and nutrition through USG-supported health area programs-health care</td>
-<td colspan="3" style="background-color: grey"></td>
+<td><span id="eightnineT"></span></td>
+<td><span id="eightnine"></span></td>
+<td><span id="eightnineA"></span></td>
 </tr>
 <tr><td style="text-align:left">Community healthcare worker</td>
 <td><span id="eightT"></span></td>
